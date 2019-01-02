@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+process.title = 'dw-cli';
+
+const program =require('commander');
+
+program
+.version(require('../package').version)
+.usage('<command> [option]', '--type required')
+.command('h5', 'to h5')
+.parse(process.argv);

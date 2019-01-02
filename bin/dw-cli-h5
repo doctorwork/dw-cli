@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+process.title = 'dw-cli-h5';
+
+const program =require('commander');
+program
+.option('--type [typeName]', 'type: dev && build')
+.parse(process.argv);
+
+const {type} = program;
+if(type == 'dev'){
+    require('../_config/webpack/runner');
+}else if(type == 'build'){
+    require('../_config/webpack/build');
+}else{
+    console.log('params error');
+    program.help();
+}
